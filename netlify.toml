@@ -1,0 +1,4 @@
+# The ready-to-serve site lives in the "website" folder (prebuilt output of "source").
+# Without this, Netlify publishes the repository root, which has no index.html -> 404.
+[build]
+  publish = "website"
