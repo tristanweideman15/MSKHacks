@@ -5,4 +5,11 @@
 window.MSK_CONFIG = {
   supabaseUrl: 'https://cmlnwwomawyjpzmtcqgd.supabase.co',
   supabaseAnonKey: 'sb_publishable_tcGMibfYp0KaDghZByYHVg_S_5QipcQ',
+ emailjs: {
+       publicKey: 'YOUR_PUBLIC_KEY',
+       serviceId: 'service_cxltyor',
+       patientTemplateId: 'template_egbsssx',
+       practiceTemplateId: '',
+       practiceEmail: 'tristanweideman18@gmail.com',
+       siteUrl: 'https://mskhacks.netlify.app',
 };
