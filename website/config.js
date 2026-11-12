@@ -5,7 +5,6 @@ window.MSK_CONFIG = {
     publicKey: 'izCpwvewLOs6dK7xt',
     serviceId: 'service_cxltyor',
     patientTemplateId: 'template_egbsssx',
-    practiceTemplateId: '',
     practiceEmail: 'tristanweideman15@gmail.com',
     siteUrl: 'https://mskhacks.netlify.app',
   },
