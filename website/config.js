@@ -6,7 +6,7 @@ window.MSK_CONFIG = {
   supabaseUrl: 'https://cmlnwwomawyjpzmtcqgd.supabase.co',
   supabaseAnonKey: 'sb_publishable_tcGMibfYp0KaDghZByYHVg_S_5QipcQ',
  emailjs: {
-       publicKey: 'YOUR_PUBLIC_KEY',
+       publicKey: 'izCpwvewLOs6dK7xt',
        serviceId: 'service_cxltyor',
        patientTemplateId: 'template_egbsssx',
        practiceTemplateId: '',
