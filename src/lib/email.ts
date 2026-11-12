@@ -158,20 +158,19 @@ export async function sendAppointmentEmails(
   const service = clean(cfg.serviceId);
 
   if (opts.patient !== false && validEmail(a.intake.email)) {
-    try {
-      await emailjs.send(service, clean(cfg.patientTemplateId), {
-        ...params,
-        to_email: a.intake.email.trim(),
-        to_name: a.intake.fullName.trim(),
-        reply_to: params.clinic_email,
-      });
-      result.patient = 'sent';
-    } catch (e) {
-      console.warn('Patient email failed', e);
-      result.patient = 'failed';
-    }
+  try {
+    await emailjs.send(service, clean(cfg.patientTemplateId), {
+      ...params,
+      to_email: a.intake.email.trim(),
+      to_name: a.intake.fullName.trim(),
+      reply_to: params.clinic_email,
+    }, { publicKey: cfg.publicKey });
+    result.patient = 'sent';
+  } catch (e) {
+    console.warn('Patient email failed', e.status, e.text, e);
+    result.patient = 'failed';
   }
-
+}
   const practiceTo = clean(cfg.practiceEmail);
   if (opts.practice !== false && clean(cfg.practiceTemplateId) && validEmail(practiceTo)) {
     const i = a.intake;
