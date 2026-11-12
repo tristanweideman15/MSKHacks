@@ -10,6 +10,6 @@ window.MSK_CONFIG = {
        serviceId: 'service_cxltyor',
        patientTemplateId: 'template_egbsssx',
        practiceTemplateId: '',
-       practiceEmail: 'tristanweideman18@gmail.com',
+       practiceEmail: 'tristanweideman15@gmail.com',
        siteUrl: 'https://mskhacks.netlify.app',
 };
