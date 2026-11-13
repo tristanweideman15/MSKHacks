@@ -109,21 +109,20 @@ export default function App() {
 
   // ------------------------------------------------------------------ patient actions
   const handleSaveNewAppointment = async (b: NewBooking) => {
-   const handleSaveNewAppointment = async (b: NewBooking) => {
-  try {
-    const appointment = await backend.createBooking(b);
-    const service = SERVICES.find((s) => s.id === appointment.serviceId) || SERVICES[0];
-    const therapist = THERAPISTS.find((t) => t.id === appointment.therapistId) || THERAPISTS[0];
-    const { patientEmail, practiceEmail } = createBookingEmails(appointment, service, therapist, CLINIC_INFO);
-    setEmails((prev) => [patientEmail, practiceEmail, ...prev]);
-    setPreviewPatientEmail(patientEmail);
-    setPreviewPracticeEmail(practiceEmail);
-    const emailResult = await sendAppointmentEmails(appointment, 'confirmed');
-    showToast(`Appointment confirmed (${appointment.referenceCode}). Save your reference code.`);
-    return { appointment, patientEmail, practiceEmail, emailResult };
-  } finally {
-    refreshAll();
-  }
+    try {
+      const appointment = await backend.createBooking(b);
+      const service = SERVICES.find((s) => s.id === appointment.serviceId) || SERVICES[0];
+      const therapist = THERAPISTS.find((t) => t.id === appointment.therapistId) || THERAPISTS[0];
+      const { patientEmail, practiceEmail } = createBookingEmails(appointment, service, therapist, CLINIC_INFO);
+      setEmails((prev) => [patientEmail, practiceEmail, ...prev]);
+      setPreviewPatientEmail(patientEmail);
+      setPreviewPracticeEmail(practiceEmail);
+      const emailResult = await sendAppointmentEmails(appointment, 'confirmed');
+      showToast(`Appointment confirmed (${appointment.referenceCode}). Save your reference code.`);
+      return { appointment, patientEmail, practiceEmail, emailResult };
+    } finally {
+      refreshAll();
+    }
   };
 
   const handleSaveWaitlistEntry = async (w: NewWaitlist) => {
