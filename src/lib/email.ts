@@ -167,7 +167,8 @@ export async function sendAppointmentEmails(
     }, { publicKey: cfg.publicKey });
     result.patient = 'sent';
   } catch (e) {
-    console.warn('Patient email failed', e.status, e.text, e);
+    const err = e as { status?: number; text?: string };
+    console.warn('Patient email failed', err.status, err.text, e);
     result.patient = 'failed';
   }
 }
