@@ -17,6 +17,7 @@ import { PractitionerPortal } from './components/PractitionerPortal';
 import { StaffLogin } from './components/StaffLogin';
 import { EmailPreviewModal } from './components/EmailPreviewModal';
 import { CheckCircle2, AlertTriangle, User } from 'lucide-react';
+import { sendAppointmentEmails } from './lib/email';
 
 const emptyStaffData: StaffData = { appointments: [], waitlist: [], blockedSlots: [] };
 
@@ -108,19 +109,21 @@ export default function App() {
 
   // ------------------------------------------------------------------ patient actions
   const handleSaveNewAppointment = async (b: NewBooking) => {
-    try {
-      const appointment = await backend.createBooking(b);
-      const service = SERVICES.find((s) => s.id === appointment.serviceId) || SERVICES[0];
-      const therapist = THERAPISTS.find((t) => t.id === appointment.therapistId) || THERAPISTS[0];
-      const { patientEmail, practiceEmail } = createBookingEmails(appointment, service, therapist, CLINIC_INFO);
-      setEmails((prev) => [patientEmail, practiceEmail, ...prev]);
-      setPreviewPatientEmail(patientEmail);
-      setPreviewPracticeEmail(practiceEmail);
-      showToast(`Appointment confirmed (${appointment.referenceCode}). Save your reference code.`);
-      return { appointment, patientEmail, practiceEmail };
-    } finally {
-      refreshAll();
-    }
+   const handleSaveNewAppointment = async (b: NewBooking) => {
+  try {
+    const appointment = await backend.createBooking(b);
+    const service = SERVICES.find((s) => s.id === appointment.serviceId) || SERVICES[0];
+    const therapist = THERAPISTS.find((t) => t.id === appointment.therapistId) || THERAPISTS[0];
+    const { patientEmail, practiceEmail } = createBookingEmails(appointment, service, therapist, CLINIC_INFO);
+    setEmails((prev) => [patientEmail, practiceEmail, ...prev]);
+    setPreviewPatientEmail(patientEmail);
+    setPreviewPracticeEmail(practiceEmail);
+    const emailResult = await sendAppointmentEmails(appointment, 'confirmed');
+    showToast(`Appointment confirmed (${appointment.referenceCode}). Save your reference code.`);
+    return { appointment, patientEmail, practiceEmail, emailResult };
+  } finally {
+    refreshAll();
+  }
   };
 
   const handleSaveWaitlistEntry = async (w: NewWaitlist) => {
