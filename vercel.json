@@ -1,5 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "echo skip",
-  "outputDirectory": "website"
+  "installCommand": "cd source && npm install",
+  "buildCommand": "cd source && npm run build",
+  "outputDirectory": "source/dist"
 }
