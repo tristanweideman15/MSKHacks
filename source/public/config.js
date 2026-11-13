@@ -6,11 +6,11 @@ window.MSK_CONFIG = {
   supabaseUrl: 'https://cmlnwwomawyjpzmtcqgd.supabase.co',
   supabaseAnonKey: 'sb_publishable_tcGMibfYp0KaDghZByYHVg_S_5QipcQ',
   emailjs: {
-    publicKey: 'izCpwvewLOs6dK7xt',
-    serviceId: 'service_cxltyor',
-    patientTemplateId: 'template_egbsssx',
+    publicKey: 'g4XJYa7BX34wvDFZ4',
+    serviceId: 'service_a6kb0eq',
+    patientTemplateId: 'template_7i0b97n',
     practiceTemplateId: '',
-    practiceEmail: 'tristanweideman15@gmail.com',
+    practiceEmail: 'info@mskhacksphysio.com',
     siteUrl: 'https://mskhacks.vercel.app',
   },
 };
