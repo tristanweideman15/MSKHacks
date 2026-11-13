@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "installCommand": "cd source && npm install",
+  "installCommand": "cd source && npm install --legacy-peer-deps",
   "buildCommand": "cd source && npm run build",
   "outputDirectory": "source/dist"
 }
