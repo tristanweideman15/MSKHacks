@@ -1,34 +1,20 @@
 import React from 'react';
-import { Calendar, MapPin, Phone, ArrowRight, Stethoscope, Instagram } from 'lucide-react';
+import { Calendar, MapPin, Phone, ArrowRight, Instagram } from 'lucide-react';
 import { CLINIC_IMAGES, CLINIC_INFO, SERVICES } from '../data/mockData';
 
 interface HeroProps {
   onOpenBooking: () => void;
-  onOpenPractitionerPortal: () => void;
-  isPractitionerMode: boolean;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   onOpenBooking,
-  onOpenPractitionerPortal,
-  isPractitionerMode,
 }) => {
   return (
     <section className="relative bg-slate-950 text-white overflow-hidden">
       <div className="bg-slate-900 border-b border-slate-800 px-4 py-2">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 text-xs text-slate-300">
-          <div className="flex items-center gap-2 min-w-0">
-            <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0" />
-            <span className="truncate">{CLINIC_INFO.address}, {CLINIC_INFO.cityStateZip}</span>
-          </div>
-          <button
-            onClick={onOpenPractitionerPortal}
-  className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border border-slate-700 transition-colors whitespace-nowrap cursor-pointer text-xs shrink-0"
-  title="Staff only – clinic operations portal"
->
-  <Stethoscope className="w-3.5 h-3.5" />
-  <span>{isPractitionerMode ? 'Patient view' : 'Staff login'}</span>
-          </button>
+        <div className="max-w-7xl mx-auto flex items-center gap-3 text-xs text-slate-300">
+          <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0" />
+          <span className="truncate">{CLINIC_INFO.address}, {CLINIC_INFO.cityStateZip}</span>
         </div>
       </div>
 
