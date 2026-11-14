@@ -18,6 +18,8 @@ import { StaffLogin } from './components/StaffLogin';
 import { EmailPreviewModal } from './components/EmailPreviewModal';
 import { CheckCircle2, AlertTriangle, User } from 'lucide-react';
 import { sendAppointmentEmails } from './lib/email';
+import { PrivacyPolicyModal } from './components/PrivacyPolicyModal';
+import { TermsOfUseModal } from './components/TermsOfUseModal';
 
 const emptyStaffData: StaffData = { appointments: [], waitlist: [], blockedSlots: [] };
 
@@ -49,7 +51,9 @@ export default function App() {
   const [isEmailPreviewOpen, setIsEmailPreviewOpen] = useState(false);
   const [previewPatientEmail, setPreviewPatientEmail] = useState<EmailNotification | null>(null);
   const [previewPracticeEmail, setPreviewPracticeEmail] = useState<EmailNotification | null>(null);
-
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
+  
   const [toast, setToast] = useState<{ text: string; kind: 'ok' | 'error' } | null>(null);
   const showToast = (text: string, kind: 'ok' | 'error' = 'ok') => {
     setToast({ text, kind });
@@ -355,6 +359,8 @@ export default function App() {
         patientEmail={previewPatientEmail}
         practiceEmail={previewPracticeEmail}
       />
+      <PrivacyPolicyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
+      <TermsOfUseModal isOpen={isTermsOpen} onClose={() => setIsTermsOpen(false)} />
 
       <div className="md:hidden fixed bottom-0 left-0 right-0 p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 z-30 flex items-center gap-2">
         <button
