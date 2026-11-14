@@ -277,6 +277,8 @@ export default function App() {
         onOpenManageBooking={() => openManage()}
         onOpenPatientDashboard={() => openManage()}
         onOpenPractitionerPortal={() => setIsPortalOpen(true)}
+        onOpenPrivacy={() => setIsPrivacyOpen(true)}
+        onOpenTerms={() => setIsTermsOpen(true)}
       />
 
       <BookingModal
@@ -291,6 +293,7 @@ export default function App() {
         blockedSlots={blockedSlots}
         onSaveAppointment={handleSaveNewAppointment}
         onSaveWaitlistEntry={handleSaveWaitlistEntry}
+        onOpenPrivacy={() => setIsPrivacyOpen(true)}
         onOpenEmailPreview={(pat, prac) => {
           setPreviewPatientEmail(pat);
           setPreviewPracticeEmail(prac);
