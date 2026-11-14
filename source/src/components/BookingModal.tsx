@@ -48,6 +48,8 @@ interface BookingModalProps {
   /** Saves the booking and returns it with its real reference code. Throws on failure. */
   onSaveAppointment: (booking: NewBooking) => Promise<{ appointment: Appointment; patientEmail: EmailNotification; practiceEmail: EmailNotification }>;
   onSaveWaitlistEntry?: (entry: NewWaitlist) => Promise<{ entry: WaitlistEntry; patientEmail: EmailNotification; practiceEmail: EmailNotification }>;
+  onOpenPrivacy?: () => void;
+  onOpenPrivacy,
   onOpenEmailPreview?: (patientEmail: EmailNotification, practiceEmail: EmailNotification) => void;
 }
 
