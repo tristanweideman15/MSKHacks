@@ -6,8 +6,6 @@ interface NavbarProps {
   onOpenBooking: () => void;
   onOpenManageBooking: () => void;
   onOpenPatientDashboard: () => void;
-  onOpenPractitionerPortal: () => void;
-  isPractitionerMode: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
