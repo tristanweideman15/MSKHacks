@@ -117,16 +117,16 @@ export const Footer: React.FC<FooterProps> = ({
             <button onClick={onOpenTerms} className="text-slate-400 hover:text-slate-200 underline cursor-pointer">
               Terms of Use
             </button>
-            <button 
-              onClick={onOpenPractitionerPortal} 
+            <button
+              onClick={onOpenPractitionerPortal}
               className="flex items-center gap-1 text-slate-400 hover:text-teal-400 transition-colors cursor-pointer"
-              >
+            >
               <Lock className="w-3 h-3" />
               <span>Practice portal</span>
             </button>
           </div>
         </div>
-
+      </div>
     </footer>
   );
 };
