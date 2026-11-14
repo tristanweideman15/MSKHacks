@@ -48,8 +48,6 @@ interface BookingModalProps {
   /** Saves the booking and returns it with its real reference code. Throws on failure. */
   onSaveAppointment: (booking: NewBooking) => Promise<{ appointment: Appointment; patientEmail: EmailNotification; practiceEmail: EmailNotification }>;
   onSaveWaitlistEntry?: (entry: NewWaitlist) => Promise<{ entry: WaitlistEntry; patientEmail: EmailNotification; practiceEmail: EmailNotification }>;
-  onOpenPrivacy?: () => void;
-  onOpenPrivacy,
   onOpenEmailPreview?: (patientEmail: EmailNotification, practiceEmail: EmailNotification) => void;
 }
 
@@ -860,16 +858,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       })}
                     </div>
 
-                    <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-center gap-1 text-[11px] text-slate-500">
-                      <span>Can't find a time that works?</span>
-                      <button
-                        type="button"
-                        onClick={() => setIsWaitlistFlow(true)}
-                        className="font-semibold text-teal-800 hover:text-teal-950 underline cursor-pointer"
-                      >
-                        Join Priority Waitlist
-                      </button>
-                    </div>
                   </div>
                 )}
               </div>
