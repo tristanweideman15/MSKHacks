@@ -7,6 +7,8 @@ interface FooterProps {
   onOpenManageBooking: () => void;
   onOpenPatientDashboard?: () => void;
   onOpenPractitionerPortal: () => void;
+  onOpenPrivacy: () => void;
+  onOpenTerms: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -14,6 +16,8 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenManageBooking,
   onOpenPatientDashboard,
   onOpenPractitionerPortal,
+  onOpenPrivacy,
+  onOpenTerms,
 }) => {
   return (
     <footer className="bg-slate-950 text-slate-300 text-xs border-t border-slate-800 pb-20 md:pb-0">
@@ -110,6 +114,13 @@ export const Footer: React.FC<FooterProps> = ({
             onClick={onOpenPractitionerPortal}
             className="flex items-center gap-1 text-slate-400 hover:text-teal-400 transition-colors cursor-pointer"
           >
+          <button onClick={onOpenPrivacy} className="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer">
+            Privacy Notice
+          </button>
+            <button onClick={onOpenTerms} className="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer">
+            Terms of Use
+          </button>
+
             <Lock className="w-3 h-3" />
             <span>Practice portal</span>
           </button>
