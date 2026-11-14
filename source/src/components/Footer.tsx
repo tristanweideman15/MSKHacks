@@ -110,22 +110,23 @@ export const Footer: React.FC<FooterProps> = ({
 
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>© {new Date().getFullYear()} MSK Hacks Physiotherapy. All rights reserved.</div>
-          <button
-            onClick={onOpenPractitionerPortal}
-            className="flex items-center gap-1 text-slate-400 hover:text-teal-400 transition-colors cursor-pointer"
-          >
-          <button onClick={onOpenPrivacy} className="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer">
-            Privacy Notice
-          </button>
-            <button onClick={onOpenTerms} className="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer">
-            Terms of Use
-          </button>
-
-            <Lock className="w-3 h-3" />
-            <span>Practice portal</span>
-          </button>
+          <div className="flex items-center gap-4">
+            <button onClick={onOpenPrivacy} className="text-slate-400 hover:text-slate-200 underline cursor-pointer">
+              Privacy Notice
+            </button>
+            <button onClick={onOpenTerms} className="text-slate-400 hover:text-slate-200 underline cursor-pointer">
+              Terms of Use
+            </button>
+            <button 
+              onClick={onOpenPractitionerPortal} 
+              className="flex items-center gap-1 text-slate-400 hover:text-teal-400 transition-colors cursor-pointer"
+              >
+              <Lock className="w-3 h-3" />
+              <span>Practice portal</span>
+            </button>
+          </div>
         </div>
-      </div>
+
     </footer>
   );
 };
