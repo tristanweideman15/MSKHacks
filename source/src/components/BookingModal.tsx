@@ -827,27 +827,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   </span>
                 </div>
 
-                {availableSlots.length === 0 ? (
-                  <div className="p-5 rounded-xl bg-teal-50/80 border border-teal-200 text-center text-xs space-y-3">
-                    <div className="w-9 h-9 rounded-full bg-teal-800 text-white flex items-center justify-center mx-auto">
-                      <Bell className="w-4 h-4 text-teal-200" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-slate-900 text-sm">All Slots Fully Booked on this Date</div>
-                      <p className="text-slate-600 text-[11px] mt-1 max-w-sm mx-auto">
-                        No openings remaining on {formatDatePretty(selectedDate)}. Join our Priority Waitlist — our clinical team will contact you the moment an opening appears.
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setIsWaitlistFlow(true)}
-                      className="px-4 py-2 bg-teal-800 hover:bg-teal-900 text-white font-bold rounded-lg transition-colors cursor-pointer text-xs flex items-center justify-center gap-1.5 mx-auto shadow-sm"
-                    >
-                      <Bell className="w-3.5 h-3.5" />
-                      <span>Join Priority Waitlist for {formatDatePretty(selectedDate)}</span>
-                    </button>
+               {availableSlots.length === 0 ? (
+                <div className="p-5 rounded-xl bg-teal-50/80 border border-teal-200 text-center text-xs space-y-3">
+                  <div className="w-9 h-9 rounded-full bg-teal-800 text-white flex items-center justify-center mx-auto">
+                    <Bell className="w-4 h-4 text-teal-200" />
                   </div>
-                ) : (
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">All Slots Fully Booked on this Date</div>
+                    <p className="text-slate-600 text-[11px] mt-1 max-w-sm mx-auto">
+                      No openings remaining on {formatDatePretty(selectedDate)}. Please try another date, or phone the practice on {CLINIC_INFO.phone}.
+                    </p>
+                  </div>
+                </div>
+              ) : (
                   <div>
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5 max-h-56 overflow-y-auto p-1">
                       {availableSlots.map((slot) => {
