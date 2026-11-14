@@ -242,8 +242,6 @@ export default function App() {
         onOpenBooking={() => openBooking(SERVICES[0].id)}
         onOpenManageBooking={() => openManage()}
         onOpenPatientDashboard={() => openManage()}
-        onOpenPractitionerPortal={() => setIsPortalOpen(true)}
-        isPractitionerMode={isPortalOpen}
       />
 
       {publicLoadError && (
@@ -255,8 +253,6 @@ export default function App() {
       <main className="flex-1">
         <Hero
           onOpenBooking={() => openBooking(SERVICES[0].id)}
-          onOpenPractitionerPortal={() => setIsPortalOpen(true)}
-          isPractitionerMode={isPortalOpen}
         />
         <InteractiveBookingCalendar
           appointments={booked}
